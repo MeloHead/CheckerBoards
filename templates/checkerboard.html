@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckerBoard Assignment</title>
+    <style>
+        html{
+            margin:0px;
+        }
+        #container{
+            width:970px;
+            height: auto;
+        }
+        .box_1{
+            background-color: red;
+            border: black solid 1px;
+            height: 20px;
+            width: 20px;
+        }
+        .box_2{
+            background-color: black;
+            border: red solid 1px;
+            height: 20px;
+            width: 20px;
+        }
+        
+        h1, h2{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id='container'>
+<h1>we are live</h1>
+    
+    <table>
+    {% for i in range (y): %}
+        {% if i % 2 != 0 %}
+        <tr>
+            {%for j in range(0,x,2):%}
+            <td class='box_1 {{ (i+j) }}'></td>
+            <td class='box_2 {{ (i+j) }}'></td>
+            {% endfor %}
+        </tr>
+        {% endif %}
+
+        {% if i in range(0,x,2):%}
+        <tr>
+            {%for j in range(0,x,2):%}
+            <td class='box_2 {{ (i+j) }}'></td>
+            <td class='box_1 {{ (i+j) }}'></td>
+            {% endfor %}
+        </tr>
+        {% endif %}
+
+    {% endfor %}    
+    </table>
+</body>
+</html>
